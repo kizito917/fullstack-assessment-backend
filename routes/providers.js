@@ -6,13 +6,13 @@ var allProviders = providerList.providers
 var router = express.Router();
 
 
-//Route to create a new provider
+//Route to create demo providers
 /**
  * @swagger
- * /v1/api/create-providers:
+ * /v1/api/create-demo-providers:
  *  post:
- *    summary: Create a new provider
- *    description: Endpoint to register providers
+ *    summary: Create demo providers
+ *    description: Endpoint to create some demo providers
  *    tags:
  *      - Providers
  *    responses:
@@ -21,7 +21,7 @@ var router = express.Router();
  *      '401': 
  *        description: Unable to submit providers
  */
-router.post('/create-providers', (req, res) => {
+router.post('/create-demo-providers', (req, res) => {
     class Providers {
         constructor(providers) {
             this.providers = providers
@@ -50,6 +50,57 @@ router.post('/create-providers', (req, res) => {
     saveproviderToDatabase();
 })
 
+
+//Route to create a new provider
+/**
+ * @swagger
+ * /v1/api/create-provider:
+ *  post:
+ *    summary: Create a new provider
+ *    description: Endpoint to create a new provider
+ *    tags:
+ *      - Providers
+ *    responses:
+ *      '200':
+ *        description: Provider created successfully
+ *      '401': 
+ *        description: Unable to create provider
+ */
+router.post('/create-provider', (req, res) => {
+    var {providerName} = req.body
+    providerModel.findOne({}).sort({'_id':-1}).limit(1)
+    .then((response) => {
+        if (response == null) {
+            var createProvider = new providerModel({
+                id: 1,
+                name: providerName
+            })
+            createProvider.save()
+            .then(() => {
+                res.status(200).json('Provider created successfully')
+            })
+            .catch((err) => {
+                res.status(401).json('Unable to create provider' + err)
+            }) 
+        } else {
+            var newId = response.id + 1
+            var createProvider = new providerModel({
+                id: newId,
+                name: providerName
+            })
+            createProvider.save()
+            .then(() => {
+                res.status(200).json('Provider created successfully')
+            })
+            .catch((err) => {
+                res.status(401).json('Unable to create provider' + err)
+            })
+        }
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+})
 
 
 //Route to fetch all providers

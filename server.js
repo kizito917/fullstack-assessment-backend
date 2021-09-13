@@ -12,7 +12,7 @@ const swaggerOptions = {
     openapi: "3.0.0",
     info: {
         version: "1.0.0",
-        title: "Nestor API",
+        title: "Fullstack Assessment API",
         description: "CLient and Provider API Information",
         contact: {
           name: "Kizito917"
@@ -53,7 +53,7 @@ app.use('/v1/api', providersRoute,clientsRoute)
 
 app.listen(port, (connected, err) => {
     if (!err) {
-        console.log(`Nestor server listening to port ${port}`)
+        console.log(`server listening to port ${port}`)
     } else {
         console.log(`Error in connecting server, ${err}`)
     }

@@ -1,5 +1,5 @@
 {
-  "name": "nestor_task",
+  "name": "fullstack_practical_task",
   "version": "1.0.0",
   "description": "A simple Fullstack MEVN application",
   "main": "server.js",

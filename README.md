@@ -1,9 +1,9 @@
-# Nestor Task
+# Fullstack Assessment Task
 
 ## 🖇 How to Start
 
 -   Git clone
--   cd `nestor-practical-test`
+-   cd `fullstack-practical-test`
 
 #### Local setup
 
