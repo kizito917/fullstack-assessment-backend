@@ -1,0 +1,20 @@
+{
+    "providers": [
+        {
+            "id" : 1,
+            "name": "John Doe"
+        },
+        {
+            "id" : 2,
+            "name": "Williams Kenneth"
+        },
+        {
+            "id" : 3,
+            "name": "Nestor Alias"
+        },
+        {
+            "id" : 4,
+            "name": "Net Ninja"
+        }
+    ]
+}
