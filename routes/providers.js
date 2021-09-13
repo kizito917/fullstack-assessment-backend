@@ -195,8 +195,8 @@ router.delete('/delete-provider/:id', (req, res) => {
  */
 router.patch('/update-provider/:id', (req,res) => {
     var param = req.params.id;
-    var {name} = req.body;
-    providerModel.findOne({id: param}, {$set: {name: name}})
+    var {providerName} = req.body;
+    providerModel.findOneAndUpdate({id: param}, {$set: {name: providerName}})
     .then((response) => {
         res.status(201).json({
             message: 'provider details updated',
