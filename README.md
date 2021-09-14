@@ -3,7 +3,7 @@
 ## 🖇 How to Start
 
 -   Git clone
--   cd `fullstack-practical-test`
+-   cd `fullstack-assessment-backend`
 
 #### Local setup
 
